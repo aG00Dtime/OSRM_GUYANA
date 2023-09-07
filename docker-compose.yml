@@ -1,0 +1,17 @@
+version: "3"
+services:
+  osrm:
+    build:
+      context: .
+    container_name: osrm
+    ports:
+      - "5000:5000"
+    volumes:
+      - guyana_map_data:/data
+    environment:
+      DOWNLOAD_URL: "http://download.geofabrik.de/south-america/guyana-latest.osm.pbf"
+      OSM_FILE: "guyana-latest.osm.pbf"
+      OSRM_FILE: "guyana-latest.osrm"
+
+volumes:
+  guyana_map_data:
